@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="wxCurl2" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/wxCurl2" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Debug/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/wxCurl2" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="" />
+				<Option object_output="obj/Release/" />
+				<Option type="2" />
+				<Option compiler="gcc" />
+				<Option createDefFile="1" />
+				<Compiler>
+					<Add option="-Wall" />
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add directory="thirdparty/curl/include" />
+			<Add directory="include" />
+			<Add directory="$(WXWIN)/include" />
+			<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
+		</Compiler>
+		<Linker>
+			<Add library="z.a" />
+			<Add library="curl.a" />
+			<Add library="crypto.a" />
+			<Add library="ssl.a" />
+			<Add directory="thirdparty/curl/lib" />
+			<Add directory="thirdparty/openssl-1.0.2a" />
+			<Add directory="thirdparty/zlib-1.2.8" />
+		</Linker>
+		<Unit filename="include/wx/curl/base.h" />
+		<Unit filename="include/wx/curl/dav.h" />
+		<Unit filename="include/wx/curl/davtool.h" />
+		<Unit filename="include/wx/curl/dialog.h" />
+		<Unit filename="include/wx/curl/ftp.h" />
+		<Unit filename="include/wx/curl/ftptool.h" />
+		<Unit filename="include/wx/curl/http.h" />
+		<Unit filename="include/wx/curl/panel.h" />
+		<Unit filename="include/wx/curl/telnet.h" />
+		<Unit filename="include/wx/curl/thread.h" />
+		<Unit filename="include/wx/curl/utils.h" />
+		<Unit filename="src/base.cpp" />
+		<Unit filename="src/dav.cpp" />
+		<Unit filename="src/davtool.cpp" />
+		<Unit filename="src/dialog.cpp" />
+		<Unit filename="src/ftp.cpp" />
+		<Unit filename="src/ftpparse.cpp" />
+		<Unit filename="src/ftpparse.h" />
+		<Unit filename="src/ftptool.cpp" />
+		<Unit filename="src/http.cpp" />
+		<Unit filename="src/panel.cpp" />
+		<Unit filename="src/telnet.cpp" />
+		<Unit filename="src/thread.cpp" />
+		<Unit filename="src/utils.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
