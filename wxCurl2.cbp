@@ -40,6 +40,7 @@
 			<Add directory="include" />
 			<Add directory="$(WXWIN)/include" />
 			<Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
+			<Add directory="thirdparty/openssl/include" />
 		</Compiler>
 		<Linker>
 			<Add library="z.a" />

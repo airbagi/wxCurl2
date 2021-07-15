@@ -33,3 +33,5 @@
 
 *.depend
 *.layout
+settings.json
+bin/

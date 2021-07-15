@@ -59,7 +59,7 @@ COMPILER_PREFIX = gcc
 WXCURL_LIB_CXXFLAGS = -DHAVE_W32API_H $(____WX_SHARED) -D_UNICODE \
 	$(__WXDEBUG_DEFINE_p) -D__WXMSW__ \
 	-I$(WX_DIR)$(WXLIBPATH)\msw$(WXLIBPOSTFIX) -I$(WX_DIR)\include $(VAR) \
-	$(VAR_3) -W -Wall -I..\include -I..\thirdparty\curl\include $(CPPFLAGS) \
+	$(VAR_3) -W -Wall -I..\include -I..\thirdparty\curl\include -I..\thirdparty\openssl\include $(CPPFLAGS) \
 	$(CXXFLAGS)
 WXCURL_LIB_OBJECTS =  \
 	gccmsw$(WXLIBPOSTFIX)\wxcurl_lib_base.o \
@@ -78,7 +78,7 @@ WXCURL_DLL_CXXFLAGS = -DHAVE_W32API_H $(____WX_SHARED) -D_UNICODE \
 	$(__WXDEBUG_DEFINE_p) -D__WXMSW__ \
 	-I$(WX_DIR)$(WXLIBPATH)\msw$(WXLIBPOSTFIX) -I$(WX_DIR)\include $(VAR) \
 	$(VAR_3) -W -Wall -I..\include -DWXMAKINGDLL_WXCURL \
-	-I..\thirdparty\curl\include $(CPPFLAGS) $(CXXFLAGS)
+	-I..\thirdparty\curl\include -I..\thirdparty\openssl\include $(CPPFLAGS) $(CXXFLAGS)
 WXCURL_DLL_OBJECTS =  \
 	gccmsw$(WXLIBPOSTFIX)\wxcurl_dll_base.o \
 	gccmsw$(WXLIBPOSTFIX)\wxcurl_dll_dav.o \
@@ -95,7 +95,7 @@ WXCURL_DLL_OBJECTS =  \
 PROTOCOLS_CXXFLAGS = -DHAVE_W32API_H $(____WX_SHARED) -D_UNICODE \
 	$(__WXDEBUG_DEFINE_p) -D__WXMSW__ \
 	-I$(WX_DIR)$(WXLIBPATH)\msw$(WXLIBPOSTFIX) -I$(WX_DIR)\include $(VAR) \
-	$(VAR_3) -W -Wall -I..\include -I..\thirdparty\curl\include $(CPPFLAGS) \
+	$(VAR_3) -W -Wall -I..\include -I..\thirdparty\curl\include -I..\thirdparty\openssl\include $(CPPFLAGS) \
 	$(CXXFLAGS)
 PROTOCOLS_OBJECTS =  \
 	gccmsw$(WXLIBPOSTFIX)\protocols_wxCURLApp.o \
@@ -128,7 +128,7 @@ PROTOCOLS_OBJECTS =  \
 DIALOGS_CXXFLAGS = -DHAVE_W32API_H $(____WX_SHARED) -D_UNICODE \
 	$(__WXDEBUG_DEFINE_p) -D__WXMSW__ \
 	-I$(WX_DIR)$(WXLIBPATH)\msw$(WXLIBPOSTFIX) -I$(WX_DIR)\include $(VAR) \
-	$(VAR_3) -W -Wall -I..\include -I..\thirdparty\curl\include $(CPPFLAGS) \
+	$(VAR_3) -W -Wall -I..\include -I..\thirdparty\curl\include -I..\thirdparty\openssl\include $(CPPFLAGS) \
 	$(CXXFLAGS)
 DIALOGS_OBJECTS =  \
 	gccmsw$(WXLIBPOSTFIX)\dialogs_minimal.o \

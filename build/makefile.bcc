@@ -84,7 +84,7 @@ COMPILER_PREFIX = bcc
 WXCURL_LIB_CXXFLAGS = -I$(BCCDIR)\include $(____WX_SHARED) -D_UNICODE \
 	$(__WXDEBUG_DEFINE_p) -D__WXMSW__ \
 	-I$(WX_DIR)$(WXLIBPATH)\msw$(WXLIBPOSTFIX) -I$(WX_DIR)\include $(VAR) \
-	$(VAR_3) -I..\include -I..\thirdparty\curl\include $(CPPFLAGS) $(CXXFLAGS)
+	$(VAR_3) -I..\include -I..\thirdparty\curl\include -I..\thirdparty\openssl\include $(CPPFLAGS) $(CXXFLAGS)
 WXCURL_LIB_OBJECTS =  \
 	bccmsw$(WXLIBPOSTFIX)\wxcurl_lib_base.obj \
 	bccmsw$(WXLIBPOSTFIX)\wxcurl_lib_dav.obj \
@@ -101,7 +101,7 @@ WXCURL_LIB_OBJECTS =  \
 WXCURL_DLL_CXXFLAGS = -I$(BCCDIR)\include $(____WX_SHARED) -D_UNICODE \
 	$(__WXDEBUG_DEFINE_p) -D__WXMSW__ \
 	-I$(WX_DIR)$(WXLIBPATH)\msw$(WXLIBPOSTFIX) -I$(WX_DIR)\include $(VAR) \
-	$(VAR_3) -I..\include -DWXMAKINGDLL_WXCURL -I..\thirdparty\curl\include \
+	$(VAR_3) -I..\include -DWXMAKINGDLL_WXCURL -I..\thirdparty\curl\include -I..\thirdparty\openssl\include \
 	$(CPPFLAGS) $(CXXFLAGS)
 WXCURL_DLL_OBJECTS =  \
 	bccmsw$(WXLIBPOSTFIX)\wxcurl_dll_base.obj \
@@ -119,7 +119,7 @@ WXCURL_DLL_OBJECTS =  \
 PROTOCOLS_CXXFLAGS = -I$(BCCDIR)\include $(____WX_SHARED) -D_UNICODE \
 	$(__WXDEBUG_DEFINE_p) -D__WXMSW__ \
 	-I$(WX_DIR)$(WXLIBPATH)\msw$(WXLIBPOSTFIX) -I$(WX_DIR)\include $(VAR) \
-	$(VAR_3) -I..\include -I..\thirdparty\curl\include $(CPPFLAGS) $(CXXFLAGS)
+	$(VAR_3) -I..\include -I..\thirdparty\curl\include -I..\thirdparty\openssl\include $(CPPFLAGS) $(CXXFLAGS)
 PROTOCOLS_OBJECTS =  \
 	bccmsw$(WXLIBPOSTFIX)\protocols_wxCURLApp.obj \
 	bccmsw$(WXLIBPOSTFIX)\protocols_wxCURLDlg.obj \
@@ -150,7 +150,7 @@ PROTOCOLS_OBJECTS =  \
 DIALOGS_CXXFLAGS = -I$(BCCDIR)\include $(____WX_SHARED) -D_UNICODE \
 	$(__WXDEBUG_DEFINE_p) -D__WXMSW__ \
 	-I$(WX_DIR)$(WXLIBPATH)\msw$(WXLIBPOSTFIX) -I$(WX_DIR)\include $(VAR) \
-	$(VAR_3) -I..\include -I..\thirdparty\curl\include $(CPPFLAGS) $(CXXFLAGS)
+	$(VAR_3) -I..\include -I..\thirdparty\curl\include -I..\thirdparty\openssl\include $(CPPFLAGS) $(CXXFLAGS)
 DIALOGS_OBJECTS =  \
 	bccmsw$(WXLIBPOSTFIX)\dialogs_minimal.obj
 
@@ -465,11 +465,11 @@ bccmsw$(WXLIBPOSTFIX)\protocols_wxTraceDialog.obj: ..\samples\protocols\wxTraceD
 	$(CXX) -q -c -P -o$@ $(PROTOCOLS_CXXFLAGS) ..\samples\protocols\wxTraceDialog.cpp
 
 bccmsw$(WXLIBPOSTFIX)\protocols_curl_app.res: ..\samples\protocols\curl_app.rc
-	brcc32 -32 -r -fo$@ -i$(BCCDIR)\include  $(____WX_SHARED_1) -d_UNICODE $(__WXDEBUG_DEFINE_p_0) -d__WXMSW__ -i$(WX_DIR)$(WXLIBPATH)\msw$(WXLIBPOSTFIX) -i$(WX_DIR)\include -i..\include -i..\thirdparty\curl\include -i..\samples\protocols ..\samples\protocols\curl_app.rc
+	brcc32 -32 -r -fo$@ -i$(BCCDIR)\include  $(____WX_SHARED_1) -d_UNICODE $(__WXDEBUG_DEFINE_p_0) -d__WXMSW__ -i$(WX_DIR)$(WXLIBPATH)\msw$(WXLIBPOSTFIX) -i$(WX_DIR)\include -i..\include -I..\thirdparty\curl\include -I..\thirdparty\openssl\include -i..\samples\protocols ..\samples\protocols\curl_app.rc
 
 bccmsw$(WXLIBPOSTFIX)\dialogs_minimal.obj: ..\samples\dialogs\minimal.cpp
 	$(CXX) -q -c -P -o$@ $(DIALOGS_CXXFLAGS) ..\samples\dialogs\minimal.cpp
 
 bccmsw$(WXLIBPOSTFIX)\dialogs_minimal.res: ..\samples\dialogs\minimal.rc
-	brcc32 -32 -r -fo$@ -i$(BCCDIR)\include  $(____WX_SHARED_1) -d_UNICODE $(__WXDEBUG_DEFINE_p_0) -d__WXMSW__ -i$(WX_DIR)$(WXLIBPATH)\msw$(WXLIBPOSTFIX) -i$(WX_DIR)\include -i..\include -i..\thirdparty\curl\include -i..\samples\dialogs ..\samples\dialogs\minimal.rc
+	brcc32 -32 -r -fo$@ -i$(BCCDIR)\include  $(____WX_SHARED_1) -d_UNICODE $(__WXDEBUG_DEFINE_p_0) -d__WXMSW__ -i$(WX_DIR)$(WXLIBPATH)\msw$(WXLIBPOSTFIX) -i$(WX_DIR)\include -i..\include -I..\thirdparty\curl\include -I..\thirdparty\openssl\include -i..\samples\dialogs ..\samples\dialogs\minimal.rc
 
