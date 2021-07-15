@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+    <FileVersion major="1" minor="6" />
+    <Project>
+        <Option title="sample" />
+        <Option pch_mode="2" />
+        <Option compiler="gcc" />
+        <Build>
+            <Target title="Debug">
+                <Option output="bin/Debug/sample" prefix_auto="1" extension_auto="1" />
+                <Option object_output="obj/Debug/" />
+                <Option type="1" />
+                <Option compiler="gcc" />
+                <Option projectLinkerOptionsRelation="2" />
+                <Compiler>
+                    <Add option="-g" />
+                </Compiler>
+                <Linker>
+                    <Add library="libwxcode_msw31ud_wxcurl.a" />
+                    <Add library="libwxmsw31ud.a" />
+                </Linker>
+            </Target>
+            <Target title="Release">
+                <Option output="bin/Release/sample" prefix_auto="1" extension_auto="1" />
+                <Option object_output="obj/Release/" />
+                <Option type="1" />
+                <Option compiler="gcc" />
+                <Option projectLinkerOptionsRelation="2" />
+                <Compiler>
+                    <Add option="-O2" />
+                </Compiler>
+                <Linker>
+                    <Add option="-s" />
+                    <Add library="libwxcode_msw31u_wxcurl.a" />
+                    <Add library="libwxmsw31u.a" />
+                </Linker>
+            </Target>
+        </Build>
+        <Compiler>
+            <Add option="-Wall" />
+            <Add option="-m32" />
+            <Add option="-std=c++11" />
+            <Add option="-fexceptions" />
+            <Add directory="../include" />
+            <Add directory="$(WXWIN)/include" />
+            <Add directory="$(WXWIN)/lib/gcc_lib/mswu" />
+            <Add directory="../thirdparty/curl/include" />
+            <Add directory="../thirdparty/zlib" />
+        </Compiler>
+        <Linker>
+            <Add option="-static" />
+            <Add option="-m32" />
+            <Add library="libcurl.a" />
+            <Add library="libssl.a" />
+            <Add library="libcrypto.a" />
+            <Add library="libole32.a" />
+            <Add library="libkernel32.a" />
+            <Add library="libuser32.a" />
+            <Add library="libws2_32.a" />
+            <Add library="libgdi32.a" />
+            <Add library="libuuid.a" />
+            <Add library="libcomctl32.a" />
+            <Add library="libversion.a" />
+            <Add library="libshlwapi.a" />
+            <Add library="libuxtheme.a" />
+            <Add library="liboleacc.a" />
+            <Add library="libcomdlg32.a" />
+            <Add library="libadvapi32.a" />
+            <Add library="libwinspool.a" />
+            <Add library="liboleaut32.a" />
+            <Add library="libwldap32.a" />
+            <Add library="libwxpng.a" />
+            <Add library="libwxzlib.a" />
+            <Add library="libz.a" />
+
+            <Add directory="../thirdparty/curl/lib" />
+            <Add directory="../thirdparty/openssl" />
+            <Add directory="../thirdparty/zlib" />
+            <Add directory="../lib/gcc_lib" />
+        </Linker>
+        <Unit filename="main.cpp" />
+        <Extensions>
+            <code_completion />
+            <envvars />
+            <debugger />
+            <lib_finder disable_auto="1" />
+        </Extensions>
+    </Project>
+</CodeBlocks_project_file>

@@ -359,7 +359,7 @@ public:
 
     //! Gets an info from this libCURL session instance.
     //! See the curl_easy_getinfo() function call for more info.
-    bool GetInfo(CURLINFO info, ...) const;
+    bool GetInfo(CURLINFO info, ...);
 
     //! Start the operation as described by the options set previously with #SetOpt.
     //! If you set CURLOPT_UPLOAD to zero and the CURLOPT_WRITEFUNCTION and CURLOPT_WRITEDATA
@@ -388,6 +388,23 @@ public:
 
     //! Is the underlying libCURL handle valid?
     bool IsOk() const { return m_pCURL != NULL; }
+
+    /**
+     * sets CA INFO (Certificate Authority) to curl library
+     * by path.
+     * @param strPathToCAFile - path to PEM file with CA
+     * @param strPathToCAFolder - path to the folder
+     * @remark if  empty string, clears settings of CA
+     * @return true if succeeded
+     * */
+    bool SetCAInfo(const wxString &strPathToCAFile, const wxString &strPathToCAFolder);
+
+    /**
+     * sets CA INFO (Certificate Authority) to curl library
+     * by PEM contents
+     * @return true if succeeded
+     **/
+    bool SetCAPEM(const wxString &strCAPEM);
 
     // Member Data Access Methods (MDA)
 
@@ -480,7 +497,7 @@ public:
     // Static LibCURL Initialization Methods - Call At Program Init and Close...
 
     //! Initializes the libCURL. Call this only once at the beginning of your program.
-    void Init();
+    static void Init();
 
     //! Clean up libCURL. Call this only once at the end of your program.
     static void Shutdown();
@@ -597,7 +614,7 @@ protected:
     wxStringOutputStream m_mosVerbose;
 
     char m_szDetailedErrorBuffer[CURL_ERROR_SIZE];
-    wxCharBuffer m_szLastError;
+    wxString m_szLastError;
 
     // for events:
     wxEvtHandler *m_pEvtHandler;
@@ -632,11 +649,15 @@ protected: // internal functions
     // CURL Handle Initialization Helper Method
     virtual void SetCurlHandleToDefaults(const wxString &relativeURL);
     virtual void SetHeaders();
+
+    /**
+     * resets all setting including options
+     */
     virtual void ResetHeaders();
     virtual void ResetResponseVars();
 
     // Output additional warnings/errors when in verbose mode.
-    void DumpErrorIfNeed(CURLcode error) const;
+    void DumpErrorIfNeed(CURLcode error);
 
 protected: // specialized safe SetOpt-like functions
     // handy overload for char buffers
