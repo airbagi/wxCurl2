@@ -7,21 +7,22 @@
 		<Option compiler="gcc" />
 		<Build>
 			<Target title="Debug">
-				<Option output="bin/Debug/wxCurl2" prefix_auto="1" extension_auto="1" />
+				<Option output="lib/gcc_lib/wxcode_msw31ud_wxcurl" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
-				<Option object_output="obj/Debug/" />
+				<Option object_output="build/gccmswud" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
 				<Compiler>
 					<Add option="-Wall" />
 					<Add option="-g" />
+					<Add option="-DWX_DEBUG" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="bin/Release/wxCurl2" prefix_auto="1" extension_auto="1" />
+				<Option output="lib/gcc_lib/wxcode_msw31ud_wxcurl" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
-				<Option object_output="obj/Release/" />
+				<Option object_output="build/gccmswu" />
 				<Option type="2" />
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
@@ -46,8 +47,8 @@
 			<Add library="crypto.a" />
 			<Add library="ssl.a" />
 			<Add directory="thirdparty/curl/lib" />
-			<Add directory="thirdparty/openssl-1.0.2a" />
-			<Add directory="thirdparty/zlib-1.2.8" />
+			<Add directory="thirdparty/openssl" />
+			<Add directory="thirdparty/zlib" />
 		</Linker>
 		<Unit filename="include/wx/curl/base.h" />
 		<Unit filename="include/wx/curl/dav.h" />
