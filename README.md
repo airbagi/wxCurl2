@@ -1,6 +1,7 @@
 # wxCurl2 - wxWidgets library to connect to Curl
 
 Based on well-known wxCode component wxCurl
+
 Original Author: Francesco Montorsi
 
 # What was done
@@ -35,10 +36,11 @@ replacing the sample path wherever you TDM-GCC compiler has been installed into.
 ## Compiling OpenSSL
 
 First of all, checkout the branch, that can be easily compiled.
-If you checkout the last one "alpha" branch, you can have difficulties.
-For example, I've used **OpenSSL_1_1_1k**
+If you checkout the last one "alpha" branch, you can have difficulties to compile it.
+For example, I've used **OpenSSL_1_1_1**
 
 ```bash
+cd openssl
 git fetch
 git checkout OpenSSL_1_1_1
 ```
@@ -55,6 +57,7 @@ mingw32-make
 **no-shared** is used to create a static library. Alternatively, the **-static** parameter can be used.
 
 You have to correct Makefile line:
+
 ```bash
 CFLAGS=-Wall -O3 -fomit-frame-pointer -DWINVER=0x0501 -D_WIN32_WINNT=0x0501
 ```
@@ -64,16 +67,6 @@ if you have errors like this one:
 ```
 undefined reference to `getnameinfo'
 ```
-
-Compile may go wrong if you have Windows SDK on the path.
-
-If there's error `multiple declaration of wspiapi` you have to remark one line in `e_os.h`:
-
-```cpp
-// #     include <wspiapi.h>
-```
-
-The last successfull build with mingw32 was in openssl-1.0.2a. So if you don't want to mess with all this stuff, checkout that branch or download sources. They will compile with less effort.
 
 ## Compiling ZLib
 
