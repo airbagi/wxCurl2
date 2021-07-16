@@ -15,8 +15,10 @@
 				<Option createDefFile="1" />
 				<Compiler>
 					<Add option="-Wall" />
+					<Add option="-Og" />
 					<Add option="-g" />
-					<Add option="-DWX_DEBUG" />
+					<Add option="-DWX_DEBUG=1" />
+					<Add option="-DDEBUG_FLAG=1" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
