@@ -72,7 +72,6 @@
             <Add library="libwxpng.a" />
             <Add library="libwxzlib.a" />
             <Add library="libz.a" />
-
             <Add directory="../thirdparty/curl/lib" />
             <Add directory="../thirdparty/openssl" />
             <Add directory="../thirdparty/zlib" />
