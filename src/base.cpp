@@ -529,6 +529,7 @@ bool wxCurlBase::SetStringOpt(CURLoption option, const wxCharBuffer &str)
           For now we convert to pure ASCII which in 99% of the cases will
           Just Do the Work
   */
+    wxLogDebug(wxS("[wxCURL] SetStringOpt %d =  %s"), (int)option, (const char *)str);
 
     return SetOpt(option, (const char *)str);
 }
@@ -551,6 +552,8 @@ bool wxCurlBase::GetInfo(CURLINFO info, ...)
 
 bool wxCurlBase::Perform()
 {
+    wxLogDebug(wxS("[wxCURL] Perform"));
+
     CURLcode res = CURLE_OK;
 
     if ((m_nFlags & wxCURL_SEND_BEGINEND_EVENTS) && m_pEvtHandler)
@@ -898,6 +901,7 @@ void wxCurlBase::SetCurlHandleToDefaults(const wxString &relativeURL)
 
 bool wxCurlBase::SetCAInfo(const wxString &strPathToCAFile, const wxString &strPathToCAFolder)
 {
+    wxLogDebug(wxS("[wxCURL] SetCAInfo %s, %s"), (const char *)strPathToCAFile, (const char *)strPathToCAFolder);
     CURLcode res;
     if (strPathToCAFile.IsEmpty())
     {
@@ -905,6 +909,10 @@ bool wxCurlBase::SetCAInfo(const wxString &strPathToCAFile, const wxString &strP
     }
     else
     {
+        if (!wxFile::Exists(strPathToCAFile))
+        {
+            wxLogDebug(wxS("[wxCURL] SetCAInfo file not found"));
+        }
         res = curl_easy_setopt(m_pCURL, CURLOPT_CAINFO, (const char *)strPathToCAFile.mb_str());
     }
     if (strPathToCAFolder.IsEmpty())
