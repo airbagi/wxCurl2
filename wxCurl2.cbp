@@ -20,7 +20,7 @@
 				</Compiler>
 			</Target>
 			<Target title="Release">
-				<Option output="lib/gcc_lib/wxcode_msw31ud_wxcurl" prefix_auto="1" extension_auto="1" />
+				<Option output="lib/gcc_lib/wxcode_msw31u_wxcurl" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="" />
 				<Option object_output="build/gccmswu" />
 				<Option type="2" />
@@ -75,10 +75,6 @@
 		<Unit filename="src/telnet.cpp" />
 		<Unit filename="src/thread.cpp" />
 		<Unit filename="src/utils.cpp" />
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
